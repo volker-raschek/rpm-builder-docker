@@ -8,12 +8,18 @@ tags:
 {{/if}}
 manifests:
   -
-    image: volkerraschek/rpm-builder:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{else}}latest{{/if}}-amd64
+    image: volkerraschek/rpm-builder:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}-amd64
     platform:
       architecture: amd64
       os: linux
   -
-    image: volkerraschek/rpm-builder:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{else}}latest{{/if}}-arm64
+    image: volkerraschek/rpm-builder:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}-arm-v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+  -
+    image: volkerraschek/rpm-builder:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}-arm64-v8
     platform:
       architecture: arm64
       os: linux

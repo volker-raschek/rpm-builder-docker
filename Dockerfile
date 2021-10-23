@@ -1,20 +1,19 @@
-FROM docker.io/library/rust:1.54.0-alpine3.13 AS build
+FROM docker.io/library/rust:slim-buster AS build
 
 ARG RPMBUILDER_VERSION=master
-ARG MUSL_VERSION=1.2.0
 
 # install dependencies
-RUN apk update && \
-    apk add curl git make musl-dev
+RUN set -e && \
+    apt-get update --yes && \
+    apt-get install --yes curl git make
 
-# compile rpm-builder
-RUN git clone https://github.com/Richterrettich/rpm-builder.git && \
-    cd rpm-builder && \
-    git checkout ${RPMBUILDER_VERSION} && \
-    make build_linux && echo $PWD
+# compile musl and rpm-builder
+RUN set -e && \
+    git clone -b ${RPMBUILDER_VERSION} https://github.com/Richterrettich/rpm-builder.git /rpm-builder && \
+    make --directory /rpm-builder build
 
-FROM docker.io/library/alpine:3.14.2
+FROM docker.io/library/debian:buster-slim
 
-COPY --from=build /rpm-builder/target/x86_64-unknown-linux-musl/release/rpm-builder /usr/bin/rpm-builder
+COPY --from=build /rpm-builder/target/release/rpm-builder /usr/bin/rpm-builder
 
 ENTRYPOINT [ "/usr/bin/rpm-builder" ]
