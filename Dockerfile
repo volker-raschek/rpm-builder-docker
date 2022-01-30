@@ -1,6 +1,6 @@
 FROM docker.io/library/rust:slim-buster AS build
 
-ARG RPMBUILDER_VERSION=master
+ARG RPMBUILDER_VERSION
 
 # install dependencies
 RUN set -e && \

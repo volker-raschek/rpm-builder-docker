@@ -1,3 +1,7 @@
+# RPMBUILDER_VERSION
+# Only required to install a specifiy version
+RPMBUILDER_VERSION?=v0.8.1 # renovate: datasource=github-releases depName=rpm-builder lookupName=Richterrettich/rpm-builder versioning=semver
+
 # CONTAINER_RUNTIME
 # The CONTAINER_RUNTIME variable will be used to specified the path to a
 # container runtime. This is needed to start and run a container image.
@@ -19,6 +23,7 @@ RPMBUILDER_IMAGE_UNQUALIFIED=${RPMBUILDER_IMAGE_NAMESPACE}/${RPMBUILDER_IMAGE_NA
 PHONY:=container-image/build
 container-image/build:
 	${CONTAINER_RUNTIME} build \
+		--build-arg RPMBUILDER_VERSION=${RPMBUILDER_VERSION} \
 		--file Dockerfile \
 		--no-cache \
 		--pull \

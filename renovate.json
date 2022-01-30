@@ -1,8 +1,34 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": true,
+  "assignees": [ "volker.raschek" ],
   "automergeStrategy": "merge-commit",
   "automergeType": "pr",
+  "labels": [ "renovate" ],
+  "packageRules": [
+    {
+      "addLabels": [ "renovate/droneci", "renovate/automerge" ],
+      "automerge": true,
+      "matchManagers": "droneci",
+      "matchUpdateTypes": [ "minor", "patch"]
+    },
+    {
+      "addLabels": [ "renovate/rpm-builder", "renovate/automerge" ],
+      "automerge": false,
+      "matchPackageNames": [ "rpm-builder" ],
+      "matchManagers": [ "regex" ]
+    }
+  ],
   "rebaseLabel": "renovate/rebase",
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "regexManagers": [
+    {
+      "description": "Update version",
+      "fileMatch": [
+        "^Makefile$"
+      ],
+      "matchStrings": [
+        "RPMBUILDER_VERSION\\?=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*) depName=(?<depName>.*)( lookupName=(?<lookupName>.*))?( versioning=(?<versioning>.*))?"
+      ]
+    }
+  ]
 }
