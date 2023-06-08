@@ -3,11 +3,17 @@ kind: pipeline
 type: kubernetes
 name: linter
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: amd64
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: markdown lint
   commands:
   - markdownlint *.md
@@ -49,11 +55,17 @@ kind: pipeline
 type: docker
 name: latest-amd64
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: amd64
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -102,11 +114,17 @@ kind: pipeline
 type: docker
 name: latest-arm-v7
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: arm
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -155,11 +173,17 @@ kind: pipeline
 type: docker
 name: latest-arm64-v8
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: arm64
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -208,7 +232,13 @@ kind: pipeline
 type: kubernetes
 name: latest-manifest
 
+clone:
+  disable: true
+
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build-manifest
   image: docker.io/plugins/manifest:latest
   settings:
@@ -261,11 +291,17 @@ kind: pipeline
 type: docker
 name: tagged-amd64
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: amd64
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -310,11 +346,17 @@ kind: pipeline
 type: docker
 name: tagged-arm-v7
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: arm
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -359,11 +401,17 @@ kind: pipeline
 type: docker
 name: tagged-arm64-v8
 
+clone:
+  disable: true
+
 platform:
   os: linux
   arch: arm64
 
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build
   image: docker.io/plugins/docker:latest
   settings:
@@ -408,7 +456,13 @@ kind: pipeline
 type: kubernetes
 name: tagged-manifest
 
+clone:
+  disable: true
+
 steps:
+- name: clone
+  image: git.cryptic.systems/volker.raschek/git:1.2.1
+
 - name: build-manifest
   image: docker.io/plugins/manifest:latest
   settings:
