@@ -12,6 +12,14 @@
       "matchUpdateTypes": [ "minor", "patch"]
     },
     {
+      "description": "Automatically update minor and patch versions of used container images in docker files",
+      "addLabels": [ "renovate/container-image", "renovate/automerge" ],
+      "automerge": true,
+      "matchBaseBranches": [ "master" ],
+      "matchManagers": [ "dockerfile" ],
+      "matchUpdateTypes": [ "minor", "patch" ]
+    },
+    {
       "addLabels": [ "renovate/rpm-builder", "renovate/automerge" ],
       "automerge": false,
       "matchPackageNames": [ "rpm-builder" ],
