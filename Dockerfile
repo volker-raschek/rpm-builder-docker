@@ -1,4 +1,4 @@
-FROM docker.io/library/rust:1.76.0-slim-buster AS build
+FROM docker.io/library/rust:1.77.0-slim-buster AS build
 
 ARG RPMBUILDER_VERSION=master
 
