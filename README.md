@@ -17,7 +17,7 @@ $ docker run \
     --workdir /workspace \
     --volume ${PWD}/workspace:rw \
     --rm \
-    volkerraschek/rpm-builder:latest \
+    docker.io/volkerraschek/rpm-builder:latest \
       --arch=x86_64 \
       --epoch=0 \
       --version=0.1.0 \
@@ -35,6 +35,6 @@ You get on overview of all possible sub commands via `--help` or visit the
 ```bash
 $ docker run \
     --rm \
-    volkerraschek/rpm-builder:latest \
+    docker.io/volkerraschek/rpm-builder:latest \
       --help
 ```
