@@ -9,8 +9,8 @@ CONTAINER_RUNTIME?=$(shell which podman)
 
 # RPMBUILDER_IMAGE_REGISTRY_NAME
 # Defines the name of the new container to be built using several variables.
-RPMBUILDER_IMAGE_REGISTRY_NAME:=docker.io
-RPMBUILDER_IMAGE_REGISTRY_USER:=volkerraschek
+RPMBUILDER_IMAGE_REGISTRY_NAME:=git.cryptic.systems
+RPMBUILDER_IMAGE_REGISTRY_USER:=volker.raschek
 
 RPMBUILDER_IMAGE_NAMESPACE?=${RPMBUILDER_IMAGE_REGISTRY_USER}
 RPMBUILDER_IMAGE_NAME:=rpm-builder
