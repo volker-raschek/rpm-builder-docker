@@ -1,5 +1,5 @@
 # RPMBUILDER_VERSION
-# Only required to install a specifiy version
+# Only required to install a specify version
 RPMBUILDER_VERSION?=v0.8.1 # renovate: datasource=github-releases depName=Richterrettich/rpm-builder
 
 # CONTAINER_RUNTIME
