@@ -1,6 +1,5 @@
 # rpm-builder
 
-[![Build Status](https://drone.cryptic.systems/api/badges/volker.raschek/rpm-builder-docker/status.svg)](https://drone.cryptic.systems/volker.raschek/rpm-builder-docker)
 
 This project contains only build sources for the container image
 `docker.io/volkerraschek/rpm-builder`. The upstream project ist hosted on
