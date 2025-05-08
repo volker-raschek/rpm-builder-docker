@@ -1,5 +1,6 @@
 # rpm-builder
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/volkerraschek/rpm-builder)](https://hub.docker.com/r/volkerraschek/rpm-builder)
 
 This project contains only build sources for the container image
 `docker.io/volkerraschek/rpm-builder`. The upstream project ist hosted on
