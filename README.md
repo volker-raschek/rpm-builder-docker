@@ -2,21 +2,19 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/volkerraschek/rpm-builder)](https://hub.docker.com/r/volkerraschek/rpm-builder)
 
-This project contains only build sources for the container image
-`docker.io/volkerraschek/rpm-builder`. The upstream project ist hosted on
-[github](https://github.com/Richterrettich/rpm-builder).
+This project contains only build sources for the container image `git.cryptic.systems/volker.raschek/rpm-builder`. The
+upstream project ist hosted on [github](https://github.com/Richterrettich/rpm-builder).
 
 ## Usage
 
-Package an example application like `my-demo-application` via the following
-example command.
+Package an example application like `my-demo-application` via the following example command.
 
 ```bash
 $ docker run \
     --workdir /workspace \
     --volume ${PWD}/workspace:rw \
     --rm \
-    docker.io/volkerraschek/rpm-builder:latest \
+    git.cryptic.systems/volker.raschek/rpm-builder:latest \
       --arch=x86_64 \
       --epoch=0 \
       --version=0.1.0 \
@@ -34,6 +32,6 @@ You get on overview of all possible sub commands via `--help` or visit the
 ```bash
 $ docker run \
     --rm \
-    docker.io/volkerraschek/rpm-builder:latest \
+    git.cryptic.systems/volker.raschek/rpm-builder:latest \
       --help
 ```
