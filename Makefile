@@ -1,6 +1,6 @@
 # RPMBUILDER_VERSION
 # Only required to install a specify version
-RPMBUILDER_VERSION?=v0.8.1 # renovate: datasource=github-releases depName=Richterrettich/rpm-builder
+RPMBUILDER_VERSION?=0.2.1-1 # renovate: datasource=github-releases depName=rpm-rs/rpm-builder extractVersion='rpm-builder-(?<version>\d+\.\d+\.\d+-\d+)$'
 
 # CONTAINER_RUNTIME
 # The CONTAINER_RUNTIME variable will be used to specified the path to a

@@ -9,8 +9,9 @@ RUN set -e && \
 
 # compile musl and rpm-builder
 RUN set -e && \
-    git clone -b ${RPMBUILDER_VERSION} https://github.com/Richterrettich/rpm-builder.git /rpm-builder && \
-    make --directory /rpm-builder build
+    git clone -b rpm-builder-${RPMBUILDER_VERSION} https://github.com/rpm-rs/rpm-builder.git /rpm-builder && \
+    cd /rpm-builder && \
+    cargo build --profile release
 
 FROM docker.io/library/debian:buster-slim
 
