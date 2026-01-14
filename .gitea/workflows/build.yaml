@@ -1,5 +1,9 @@
 name: Build
 
+env:
+  # Introduce suffix for new upstream repository
+  RPMBUILDER_SUFFIX: rs
+
 on:
   pull_request:
     types:
@@ -27,7 +31,7 @@ jobs:
             --platform linux/arm64 \
             --file Dockerfile \
             --provenance false \
-            --tag git.cryptic.systems/volker.raschek/rpm-builder:${TAG}-arm64 \
+            --tag git.cryptic.systems/volker.raschek/rpm-builder:${TAG}-${RPMBUILDER_SUFFIX}-arm64 \
             .
 
   build-amd64:
@@ -45,5 +49,5 @@ jobs:
             --platform linux/amd64 \
             --file Dockerfile \
             --provenance false \
-            --tag git.cryptic.systems/volker.raschek/rpm-builder:${TAG}-amd64 \
+            --tag git.cryptic.systems/volker.raschek/rpm-builder:${TAG}-${RPMBUILDER_SUFFIX}-amd64 \
             .
