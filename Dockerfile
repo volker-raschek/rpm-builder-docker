@@ -9,11 +9,15 @@ RUN set -e && \
 
 # compile musl and rpm-builder
 RUN set -e && \
-    git clone -b rpm-builder-${RPMBUILDER_VERSION} https://github.com/rpm-rs/rpm-builder.git /rpm-builder && \
+    if [ "${RPMBUILDER_VERSION}" != "master" ]; then \
+      git clone -b rpm-builder-${RPMBUILDER_VERSION} https://github.com/rpm-rs/rpm-builder.git /rpm-builder; \
+    else \
+      git clone -b master https://github.com/rpm-rs/rpm-builder.git /rpm-builder; \
+    fi && \
     cd /rpm-builder && \
     cargo build --profile release
 
-FROM docker.io/library/debian:buster-slim
+FROM docker.io/library/debian:bullseye-slim
 
 COPY --from=build /rpm-builder/target/release/rpm-builder /usr/bin/rpm-builder
 
