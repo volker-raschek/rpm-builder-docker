@@ -1,4 +1,4 @@
-FROM docker.io/library/rust:1.95.0-slim-bullseye AS build
+FROM docker.io/library/rust:1.96.0-slim-bullseye AS build
 
 ARG RPMBUILDER_VERSION=master
 
